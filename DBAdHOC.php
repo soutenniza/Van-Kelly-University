@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <title>Bootstrap, from Twitter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    rel="stylesheet">
+    <link href="includes/css/bootstrap.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </head>
-  
+
   <body>
     <div class="navbar navbar-default navbar-static-top navbar-inverse">
       <div class="container">
@@ -22,24 +21,24 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <a class="navbar-brand" href="#">Van-Kelly University</a>
+          <a class="navbar-brand" href="/project/DBHome.php">Van-Kelly University</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="">
-              <a href="#">Home</a>
+            <li>
+              <a href="/project/DBHome.php">Home</a>
             </li>
-            <li class="">
-              <a href="#">Database</a>
+            <li>
+              <a href="/project/DBDatabase.php">Database</a>
             </li>
             <li class="active">
-              <a href="#">Ad-Hoc</a>
+              <a href="/project/DBAdHOC.php">Ad-Hoc</a>
             </li>
             <li>
-              <a href="#">Queries</a>
+              <a href="/project/DBQueries.php">Queries</a>
             </li>
             <li>
-              <a href="#">Relations</a>
+              <a href="/project/DBRelations.php">Relations</a>
             </li>
           </ul>
         </div>
