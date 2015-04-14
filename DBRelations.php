@@ -43,7 +43,7 @@
       while($row = $result->fetch_assoc()){
         echo "<tr>
                 <td>" . $row["SNum"] . "</td>
-                <td>" . $row["SSN"] . "<td>
+                <td>" . $row["SSN"] . "</td>
                 <td>" . $row["Class"] . "</td>
               </tr>";
       }
