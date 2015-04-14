@@ -24,6 +24,18 @@
     $conn->query($sql);
     $sql = "INSERT INTO Student (SNum, SSN, Class)
     VALUES (100004 , 823123321, '4')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Major (SSN, DName, DCode)
+    VALUES (823123321 , 'Computer Science', '1')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Major (SSN, DName, DCode)
+    VALUES (981981981 , 'English', '2')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Minor (SSN, DName, DCode)
+    VALUES (823123321 , 'English', '1')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Minor (SSN, DName, DCode)
+    VALUES (981981981 , 'Computer Science', '2')";
 
     if($conn->query($sql) === TRUE){
       echo "<div class='alert alert-success'>
