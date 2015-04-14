@@ -11,10 +11,19 @@
     }
 
     $sql = "INSERT INTO Student (SNum, SSN, Class)
-    VALUES (717171 , 123322123, 'Junior')";
+    VALUES (100000 , 123322123, '3')";
     $conn->query($sql);
     $sql = "INSERT INTO Student (SNum, SSN, Class)
-    VALUES (696969 , 123123123, 'Junior')";
+    VALUES (100001 , 123123123, '3')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Student (SNum, SSN, Class)
+    VALUES (100002 , 123456789, '4')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Student (SNum, SSN, Class)
+    VALUES (100003 , 981981981, '1')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Student (SNum, SSN, Class)
+    VALUES (100004 , 823123321, '4')";
 
     if($conn->query($sql) === TRUE){
       echo "<div class='alert alert-success'>

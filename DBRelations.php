@@ -1,23 +1,5 @@
 <?php
 
-  function clearDB(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "VanKelly";
-    $conn = new mysqli($servername, $username, $password, $db);
-    if($conn->connect_error){
-      die("Connection failed: " . $conn.connect_error);
-    }
-
-    $sql = "TRUNCATE TABLE Student";
-    if($conn->query($sql) === TRUE){
-      echo "<div class='alert alert-success'>Database Cleared</div>";
-    }else {
-      echo "<div class='alert alert-danger'>Database Cleared Error</div>";
-    }
-  }
-
   function student(){
     $servername = "localhost";
     $username = "root";

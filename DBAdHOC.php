@@ -1,3 +1,42 @@
+<?php
+
+  function student(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "VanKelly";
+    $conn = new mysqli($servername, $username, $password, $db);
+    if($conn->connect_error){
+      die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "SELECT SNum, SSN, Class FROM Student";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+      echo "<table class='table'>
+          <thead>
+            <tr>
+              <th>SNum</th>
+              <th>SSN</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>";
+      while($row = $result->fetch_assoc()){
+        echo "<tr>
+                <td>" . $row["SNum"] . "</td>
+                <td>" . $row["SSN"] . "</td>
+                <td>" . $row["Class"] . "</td>
+              </tr>";
+      }
+      echo "</table></tbody>";
+    }else{
+      echo "0 results";
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -49,6 +88,15 @@
         <div class="row">
           <div class="col-md-12" draggable="true" style="">
             <h1>Ad-Hoc Queries</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <?php
+            if(isset($_GET['student'])){
+              student();
+            }
+            ?>
           </div>
         </div>
         <div class="row">
