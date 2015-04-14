@@ -25,25 +25,52 @@
     $sql = "INSERT INTO Student (SNum, SSN, Class)
     VALUES (100004 , 823123321, '4')";
     $conn->query($sql);
+
     $sql = "INSERT INTO Major (SSN, DName, DCode)
     VALUES (823123321 , 'Computer Science', '1')";
     $conn->query($sql);
     $sql = "INSERT INTO Major (SSN, DName, DCode)
     VALUES (981981981 , 'English', '2')";
     $conn->query($sql);
+
+    $sql = "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
+    VALUES (100100100 , '1', '123 Van Lane', '3135867855', '100000')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
+    VALUES (100100123 , '2', '123 Kelly Lane', '3135867866', '200000')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
+    VALUES (100123100 , '1', '124 Van Lane', '3135867877', '150000')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
+    VALUES (100100123 , '3', '124 Kelly Lane', '3135867888', '690000')";
+    $conn->query($sql);
+
     $sql = "INSERT INTO Minor (SSN, DName, DCode)
-    VALUES (823123321 , 'English', '1')";
+    VALUES (823123321 , 'English', '2')";
     $conn->query($sql);
     $sql = "INSERT INTO Minor (SSN, DName, DCode)
-    VALUES (981981981 , 'Computer Science', '2')";
+    VALUES (981981981 , 'Computer Science', '1')";
+    $conn->query($sql);
+
+    $sql = "INSERT INTO Department (DName, DCode, DPhone, DNumber)
+    VALUES ('English', '2', 3125648293, 222)";
+    $conn->query($sql);
+    $sql = "INSERT INTO Department (DName, DCode, DPhone, DNumber)
+    VALUES ('Computer Science', '1', 3125648294, 111)";
+
+    $sql = "INSERT INTO College (CName, COffice, CDean)
+    VALUES ('Engineering', '6900 Kelly Road', 'Kelly Markait')";
+    $sql = "INSERT INTO College (CName, COffice, CDean)
+    VALUES ('Arts', '6900 Van Road', 'Van Nguyen')";
+    $conn->query($sql);
 
     if($conn->query($sql) === TRUE){
-      echo "<div class='alert alert-success'>
-          <strong>Database has been initialized</strong></div>";
+      echo "<div class='alert alert-success'>Database Initialized</div>";
     }else {
-      echo "<div class='alert alert-danger'>
-        <strong>Error initializing the database</strong></div>";
+      echo "<div class='alert alert-danger'>Database Initialization Error</div>";
     }
+
   }
 
   function clearDB(){
@@ -57,6 +84,20 @@
     }
 
     $sql = "TRUNCATE TABLE Student";
+    $conn->query($sql);
+
+    $sql = "TRUNCATE TABLE Major";
+    $conn->query($sql);
+
+    $sql = "TRUNCATE TABLE Faculty";
+    $conn->query($sql);
+
+    $sql = "TRUNCATE TABLE Minor";
+    $conn->query($sql);
+
+    $sql = "TRUNCATE TABLE Department";
+    $conn->query($sql);
+
     if($conn->query($sql) === TRUE){
       echo "<div class='alert alert-success'>Database Cleared</div>";
     }else {
@@ -64,12 +105,6 @@
     }
   }
 
-  if(isset($_GET['initDB'])){
-    initializeDB();
-  }
-  if(isset($_GET['clearDB'])){
-    clearDB();
-  }
 ?>
 
 
@@ -128,6 +163,16 @@
             <h1 style="">Database Tools</h1>
             <hr>
           </div>
+        </div>
+        <div class="row">
+        <?php
+        if(isset($_GET['initDB'])){
+          initializeDB();
+        }
+        if(isset($_GET['clearDB'])){
+          clearDB();
+        }
+        ?>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
