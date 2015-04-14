@@ -21,24 +21,24 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <a class="navbar-brand" href="/project/DBHome.php">Van-Kelly University</a>
+          <a class="navbar-brand" href="/DB/Van-Kelly-University/DBHome.php">Van-Kelly University</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="/project/DBHome.php">Home</a>
+              <a href="/DB/Van-Kelly-University/DBHome.php">Home</a>
             </li>
             <li>
-              <a href="/project/DBDatabase.php">Database</a>
+              <a href="/DB/Van-Kelly-University/DBDatabase.php">Database</a>
             </li>
             <li>
-              <a href="/project/DBAdHOC.php">Ad-Hoc</a>
+              <a href="/DB/Van-Kelly-University/DBAdHOC.php">Ad-Hoc</a>
             </li>
             <li>
-              <a href="/project/DBQueries.php">Queries</a>
+              <a href="/DB/Van-Kelly-University/DBQueries.php">Queries</a>
             </li>
             <li class="active">
-              <a href="/project/DBRelations.php">Relations</a>
+              <a href="/DB/Van-Kelly-University/DBRelations.php">Relations</a>
             </li>
           </ul>
         </div>
