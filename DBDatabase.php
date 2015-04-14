@@ -12,6 +12,10 @@
 
     $sql = "INSERT INTO Student (SNum, SSN, Class)
     VALUES (717171 , 123322123, 'Junior')";
+    $conn->query($sql);
+    $sql = "INSERT INTO Student (SNum, SSN, Class)
+    VALUES (696969 , 123123123, 'Junior')";
+
     if($conn->query($sql) === TRUE){
       echo "<div class='alert alert-success'>
           <strong>Database has been initialized</strong></div>";

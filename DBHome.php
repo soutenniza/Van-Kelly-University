@@ -49,7 +49,7 @@
       <div class="container">
         <h1>Hello, Bitches!</h1>
         <p>
-          <a href="/project/DBDatabase.php" class="btn btn-primary btn-large">Get Started!</a>
+          <a href="/DB/Van-Kelly-University/DBHome.php" class="btn btn-primary btn-large">Get Started!</a>
         </p>
       </div>
     </div>
