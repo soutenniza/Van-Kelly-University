@@ -1,3 +1,55 @@
+<?php
+
+  function initializeDB(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "VanKelly";
+    $conn = new mysqli($servername, $username, $password, $db);
+    if($conn->connect_error){
+      die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "INSERT INTO Student (SNum, SSN, Class)
+    VALUES (717171 , 123322123, 'Junior')";
+    if($conn->query($sql) === TRUE){
+      echo "<div class='alert alert-success'>
+          <strong>Database has been initialized</strong></div>";
+    }else {
+      echo "<div class='alert alert-danger'>
+        <strong>Error initializing the database</strong></div>";
+    }
+  }
+
+  function clearDB(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "VanKelly";
+    $conn = new mysqli($servername, $username, $password, $db);
+    if($conn->connect_error){
+      die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "TRUNCATE TABLE Student";
+    if($conn->query($sql) === TRUE){
+      echo "<div class='alert alert-success'>Database Cleared</div>";
+    }else {
+      echo "<div class='alert alert-danger'>Database Cleared Error</div>";
+    }
+  }
+
+  if(isset($_GET['initDB'])){
+    initializeDB();
+  }
+  if(isset($_GET['clearDB'])){
+    clearDB();
+  }
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -53,18 +105,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <div class="alert alert-dismissable alert-success">
-              <strong>Well done!</strong>You successfully read this important alert message.</div>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
-            <a class="btn btn-primary">Clear</a>
+            <a href='DBDatabase.php?clearDB=true' class="btn btn-primary">Clear</a>
           </div>
           <div class="col-md-4">
-            <a class="btn btn-primary">Initialize</a>
+            <a href='DBDatabase.php?initDB=true' class="btn btn-primary">Initialize</a>
           </div>
         </div>
       </div>
