@@ -18,13 +18,25 @@
   }
 
   function display($result, $count){
+    $datatype = array(
+    1=>'tinyint',
+    2=>'smallint',
+    3=>'int',
+    5=>'double',
+    9=>'mediumint',
+    10=>'date',
+    253=>'varchar',
+    254=>'char');
+
+
     $fieldinfo = mysqli_fetch_fields($result);
     if($result->num_rows > 0){
       echo "<table class='table'>
           <thead>
             <tr>";
       foreach($fieldinfo as $val){
-        echo "<th>". $val->name . "</th>";
+        $i = $val->type;
+        echo "<th>". $val->name . "(" . $datatype[$i] . ")</th>";
       }
       echo "</tr>
           </thead>
