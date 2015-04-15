@@ -1,6 +1,5 @@
 <?php
-
-  function student(){
+  function relations($name){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -10,24 +9,32 @@
       die("Connection failed: " . $conn.connect_error);
     }
 
-    $sql = "SELECT SNum, SSN, Class FROM Student";
+    $sql = "SELECT * FROM $name";
     $result = $conn->query($sql);
+    $count = mysqli_field_count($conn);
+    echo "<h3>". $name ."</h3>";
+    display($result,$count);
+    $conn->close();
+  }
+
+  function display($result, $count){
+    $fieldinfo = mysqli_fetch_fields($result);
     if($result->num_rows > 0){
       echo "<table class='table'>
           <thead>
-            <tr>
-              <th>SNum</th>
-              <th>SSN</th>
-              <th>Class</th>
-            </tr>
+            <tr>";
+      foreach($fieldinfo as $val){
+        echo "<th>". $val->name . "</th>";
+      }
+      echo "</tr>
           </thead>
           <tbody>";
-      while($row = $result->fetch_assoc()){
-        echo "<tr>
-                <td>" . $row["SNum"] . "</td>
-                <td>" . $row["SSN"] . "</td>
-                <td>" . $row["Class"] . "</td>
-              </tr>";
+      while($row = $result->fetch_array()){
+        echo "<tr>";
+        for($i = 0; $i < $count; $i++){
+          echo "<td>" . $row[$i] . "</td>";
+        }
+        echo "</tr>";
       }
       echo "</table></tbody>";
     }else{
@@ -94,9 +101,12 @@
         <div class="row">
           <div class="col-md-12">
             <?php
-            if(isset($_GET['student'])){
-              student();
-            }
+              if(isset($_GET['student'])){
+                relations('Student');
+              }
+              if(isset($_GET['person'])){
+                relations('Person');
+              }
             ?>
           </div>
         </div>
@@ -108,17 +118,13 @@
           <a href='DBRelations.php?student=true'class="btn btn-primary" style="">Student</a>
         </div>
         <div class="col-md-4">
-          <a class="btn btn-primary">Inset Relation Here</a>
+          <a href='DBRelations.php?person=true'class="btn btn-primary">Person</a>
         </div>
         <div class="col-md-4">
           <a class="btn btn-primary">Inset Relation Here</a>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <hr>
-        </div>
-      </div>
+      <hr>
       <div class="row">
         <div class="col-md-4">
           <a class="btn btn-primary">Insert Relation Here</a>
@@ -130,11 +136,43 @@
           <a class="btn btn-primary">Insert Relation Here</a>
         </div>
       </div>
+      <hr>
       <div class="row">
-        <div class="col-md-12">
-          <hr>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
         </div>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-primary">Inser Relatin Here</a>
+        </div>
+      </div>
+      <hr>
       <div class="row">
         <div class="col-md-4">
           <a class="btn btn-primary">Inser Relatin Here</a>
