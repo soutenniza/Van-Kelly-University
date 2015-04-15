@@ -229,6 +229,36 @@
               if(isset($_GET['transcript'])){
                 relations('Transcript');
               }
+
+              if(isset($_GET['all'])){
+                  relations('Student');
+                  relations('Person');
+                  relations('Faculty');
+                  relations('Academic');
+                  relations('Administrator');
+                  relations('CD');
+                  relations('Coach');
+                  relations('Course');
+                  relations('College');
+                  relations('Current_Section');
+                  relations('Department');
+                  relations('Grantt');
+                  relations('Instructor_Researcher');
+                  relations('Major');
+                  relations('Minor');
+                  relations('Non_Academic');
+                  relations('Offered');
+                  relations('Primaryy');
+                  relations('Grade');
+                  relations('Primaryy');
+                  relations('Registered');
+                  relations('Secondary');
+                  relations('Section');
+                  relations('Sport');
+                  relations('Staff');
+                  relations('Teaches');
+                  relations('Transcript');
+              }
             ?>
           </div>
         </div>
@@ -337,6 +367,9 @@
         </div>
         <div class="col-md-4">
           <a href='DBRelations.php?transcript=true' class="btn btn-primary">Transcript</a>
+        </div>
+        <div class="col-md-4">
+          <a href='DBRelations.php?all=true' class="btn btn-primary">All relations</a>
         </div>
       </div>
     </div>
