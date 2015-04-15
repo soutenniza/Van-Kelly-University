@@ -28,7 +28,7 @@
       die("Connection failed: " . $conn.connect_error);
     }
 
-    $sql = "SELECT * FROM Major M, Student S WHERE M.SSN = S.SSN AND DName = 'Computer Science'";
+    $sql = "SELECT S.SSN, M.DName FROM Major M, Student S WHERE M.SSN = S.SSN AND DName = 'Computer Science'";
     $result = $conn->query($sql);
     $count = mysqli_field_count($conn);
     echo "<h3>Return students who's major is Computer Science</h3>";
