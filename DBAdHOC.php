@@ -12,6 +12,11 @@
 
     $result = $conn->query($_GET['query']);
     $count = mysqli_field_count($conn);
+
+    display($result, $count);
+  }
+
+  function display($result, $count){
     $fieldinfo = mysqli_fetch_fields($result);
     if($result->num_rows > 0){
       echo "<table class='table'>
