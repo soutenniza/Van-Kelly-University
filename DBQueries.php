@@ -1,6 +1,6 @@
 <?php
 
-  function student(){
+  function studentsenior(){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -13,6 +13,39 @@
     $sql = "SELECT SSN FROM Student WHERE Class='4' ";
     $result = $conn->query($sql);
     if($result->num_rows > 0){
+      echo "<h3>Return all students who are seniors</h3>";
+      echo "<table class='table'>
+          <thead>
+            <tr>
+              <th>SSN</th>
+            </tr>
+          </thead>
+          <tbody>";
+      while($row = $result->fetch_assoc()){
+        echo "<tr>
+                <td>" . $row["SSN"] . "</td>
+              </tr>";
+      }
+      echo "</table></tbody>";
+    }else{
+      echo "0 results";
+    }
+  }
+
+  function studentmajor(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "VanKelly";
+    $conn = new mysqli($servername, $username, $password, $db);
+    if($conn->connect_error){
+      die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "SELECT * FROM Major M, Student S WHERE M.SSN = S.SSN AND DName = 'Computer Science'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+      echo "<h3>Return all computer science majors</h3>";
       echo "<table class='table'>
           <thead>
             <tr>
@@ -90,8 +123,15 @@
         <div class="row">
           <div class="col-md-12">
             <?php
-            if(isset($_GET['student'])){
-              student();
+            if(isset($_GET['studentsenior'])){
+              studentsenior();
+            }
+            if(isset($_GET['studentmajor'])){
+              studentmajor();
+            }
+            if(isset($_GET['all'])){
+              studentsenior();
+              studentmajor();
             }
             ?>
           </div>
@@ -101,27 +141,19 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <a href='DBQueries.php?student=true' class="btn btn-primary" style="">Return all students who are seniors</a>
+          <a href='DBQueries.php?studentsenior=true' class="btn btn-primary" style="">Return all students who are seniors</a>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-md-12">
-          <hr>
+          <a href = 'DBQueries.php?studentmajor=true' class="btn btn-primary">Return all computer science majors</a>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-md-12">
-          <a class="btn btn-primary">Insert Query Here</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <hr>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <a class="btn btn-primary" contenteditable="true">Insert Query Here</a>
+          <a href = 'DBQueries.php?all=true' class="btn btn-primary">All of the above</a>
         </div>
       </div>
     </div>
