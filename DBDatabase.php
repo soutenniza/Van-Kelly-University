@@ -36,12 +36,16 @@
     $sql .= "INSERT INTO Person (SSN, Name, BDate, Address, Sex)
     VALUES (100100123, 'Arya Stark', '1637-12-01', '4 Pentos Mile', 1);";
     $sql .= "INSERT INTO Person (SSN, Name, BDate, Address, Sex)
+    VALUES (123100123, 'Mila Mila Kunis', '1327-01-01', '5 Pentos Mile', 1);";
+    $sql .= "INSERT INTO Person (SSN, Name, BDate, Address, Sex)
     VALUES (100123100, 'Oliver Queen', '1927-06-23', '124 Verdant Parkway', 0);";
     $sql .= "INSERT INTO Person (SSN, Name, BDate, Address, Sex)
     VALUES (123100100, 'Bruce Wayne', '1999-08-11', '124 Wayne Estate', 0);";
 
     $sql .= "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
     VALUES (100100100 , '1', '123 Van Lane', '3135867855', '100000');";
+    $sql .= "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
+    VALUES (123100123 , '2', '12 Van Lane', '3135867355', '696969');";
     $sql .= "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
     VALUES (100100123 , '2', '123 Kelly Lane', '3135867866', '200000');";
     $sql .= "INSERT INTO Faculty (SSN, Rank, FOffice, FPhone, Salary)
@@ -78,6 +82,10 @@
     VALUES ('100', 'Intro to Databases', 'Learn about bases of data!', 3, 4, 'Computer Science');";
     $sql .= "INSERT INTO Course (CNum, CName, CDesc, Credit, Level, CDept)
     VALUES ('101', 'Intro to Beer Making', 'Beers', 2, 1, 'English');";
+    $sql .= "INSERT INTO Course (CNum, CName, CDesc, Credit, Level, CDept)
+    VALUES ('102', 'Intro to Forestry', 'Trees', 1, 2, 'English');";
+    $sql .= "INSERT INTO Course (CNum, CName, CDesc, Credit, Level, CDept)
+    VALUES ('103', 'Intro to Hockey', 'Hockey', 1, 3, 'Computer Science');";
 
     $sql .= "INSERT INTO Current_Section (SecNum, CNum, Semester, Year)
     VALUES ('100', '100', 'FALL', 2102);";
@@ -98,9 +106,9 @@
     VALUES (200200203, 'A', 101);";
 
     $sql .= "INSERT INTO Grantt (No, Title, Agency, St_Date)
-    VALUES (100, 'Beer Research', 'Vaniel Charities', '1999-03-21');";
+    VALUES (100, 'Beer Research', 'Kelly Charities', '1999-03-21');";
     $sql .= "INSERT INTO Grantt (No, Title, Agency, St_Date)
-    VALUES (101, 'Arrow Research', 'Kelly Charities', '1999-03-21');";
+    VALUES (101, 'Arrow Research', 'Vaniel Charities', '1999-03-21');";
 
     $sql .= "INSERT INTO Instructor_Researcher (SSN)
     VALUES (100100100);";
@@ -137,6 +145,26 @@
     VALUES (200200200, 100);";
     $sql .= "INSERT INTO Registered (SSN, SecNum)
     VALUES (200200200, 101);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200200, 102);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200200, 103);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200201, 100);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200201, 101);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200202, 101);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200202, 103);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200203, 103);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200203, 101);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200204, 103);";
+    $sql .= "INSERT INTO Registered (SSN, SecNum)
+    VALUES (200200204, 101);";
 
     $sql .= "INSERT INTO Sport (PIC, OffLoc, NoS)
     VALUES ('Van Nguyen', '123 Van Way', 'Rock Climbing');";

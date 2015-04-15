@@ -1,6 +1,6 @@
 <?php
 
-  function student(){
+  function query(){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -10,24 +10,25 @@
       die("Connection failed: " . $conn.connect_error);
     }
 
-    $sql = "SELECT SNum, SSN, Class FROM Student";
-    $result = $conn->query($sql);
+    $result = $conn->query($_GET['query']);
+    $count = mysqli_field_count($conn);
+    $fieldinfo = mysqli_fetch_fields($result);
     if($result->num_rows > 0){
       echo "<table class='table'>
           <thead>
-            <tr>
-              <th>SNum</th>
-              <th>SSN</th>
-              <th>Class</th>
-            </tr>
+            <tr>";
+      foreach($fieldinfo as $val){
+        echo "<th>". $val->name . "</th>";
+      }
+      echo "</tr>
           </thead>
           <tbody>";
-      while($row = $result->fetch_assoc()){
-        echo "<tr>
-                <td>" . $row["SNum"] . "</td>
-                <td>" . $row["SSN"] . "</td>
-                <td>" . $row["Class"] . "</td>
-              </tr>";
+      while($row = $result->fetch_array()){
+        echo "<tr>";
+        for($i = 0; $i < $count; $i++){
+          echo "<td>" . $row[$i] . "</td>";
+        }
+        echo "</tr>";
       }
       echo "</table></tbody>";
     }else{
@@ -93,20 +94,21 @@
         <div class="row">
           <div class="col-md-12">
             <?php
-            if(isset($_GET['student'])){
-              student();
+            if(isset($_GET['query'])){
+              query();
             }
             ?>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            <form role="form">
+            <form action ="DBAdHoc.php" method="get" role="form">
               <div class="form-group">
-                <input class="form-control" id="inputQuery" placeholder="Enter query"
+                <input class="form-control" id="inputQuery" name="query"placeholder="Enter query"
                 type="text">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
+              <button type="reset" class="btn btn-default">Clear</button>
             </form>
           </div>
         </div>
