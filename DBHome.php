@@ -47,7 +47,7 @@
     </div>
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, Bitches!</h1>
+        <h1>Hello, </h1>
         <p>
           <a href="/DB/Van-Kelly-University/DBDatabase.php" class="btn btn-primary btn-large">Get Started!</a>
         </p>
