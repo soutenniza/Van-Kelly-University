@@ -57,6 +57,13 @@
     VALUES (200200204 , 'Computer Science', '1');";
     $sql .= "INSERT INTO Major (SSN, DName, DCode)
     VALUES (200200203 , 'English', '2');";
+    $sql .= "INSERT INTO Major (SSN, DName, DCode)
+    VALUES (200200201 , 'Computer Science', '1');";
+    $sql .= "INSERT INTO Major (SSN, DName, DCode)
+    VALUES (200200202 , 'English', '2');";
+    $sql .= "INSERT INTO Major (SSN, DName, DCode)
+    VALUES (200200200 , 'Computer Science', '1');";
+
 
     $sql .= "INSERT INTO Minor (SSN, DName, DCode)
     VALUES (200200204 , 'English', '2');";
@@ -91,6 +98,11 @@
     VALUES ('100', '100', 'FALL', 2102);";
     $sql .= "INSERT INTO Current_Section (SecNum, CNum, Semester, Year)
     VALUES ('101', '101', 'WINTER', 2103);";
+    $sql .= "INSERT INTO Current_Section (SecNum, CNum, Semester, Year)
+    VALUES ('102', '101', 'WINTER', 2103);";
+    $sql .= "INSERT INTO Current_Section (SecNum, CNum, Semester, Year)
+    VALUES ('103', '101', 'WINTER', 2103);";
+
 
     $sql .= "INSERT INTO Grade (SSN, Grade, SecNum)
     VALUES (200200200, 'A', 100);";
