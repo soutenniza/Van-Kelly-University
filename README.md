@@ -1,2 +1,2 @@
 # Van-Kelly-University
-KELLY SAN
+KELLY
